@@ -102,10 +102,10 @@
            available for use by the Realm.  
       <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
              resourceName="UserDatabase"/> -->
-      
+
       <Realm className="org.apache.catalina.realm.JDBCRealm" debug ="99"
              driverName="com.mysql.jdbc.Driver"
-	     connectionURL="jdbc:mysql://localhost/bookshop?user=root&amp;password="
+	     connectionURL="jdbc:mysql://localhost/olle?user=olle&amp;password=XX"
 	     userTable="USERS" userNameCol="USER_NAME" userCredCol="USER_PASS"
 	     userRoleTable="USER_ROLES" roleNameCol="ROLE_NAME"/>
 
