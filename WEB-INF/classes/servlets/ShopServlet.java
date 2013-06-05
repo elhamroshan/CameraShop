@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import beans.*;
 /**
  *
- * @author  Fredrik Ålund, Olle Eriksson
+ * @author  Fredrik ï¿½lund, Olle Eriksson
  * @version 1.0
  */
 public class ShopServlet extends HttpServlet {
@@ -82,7 +82,7 @@ public class ShopServlet extends HttpServlet {
         HttpSession sess = request.getSession();
         RequestDispatcher rd = null;
         ShoppingBean shoppingCart = getCart(request);
-	sess.setAttribute("currentUser", request.getRemoteUser());
+	sess.setAttribute("currentUser", "tomcat");
         sess.setAttribute("jdbcURL",jdbcURL);
 
         // check if we should turn on debug
