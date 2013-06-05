@@ -7,7 +7,7 @@
 <html>
 <head><title>BookShop::Shop</title></head>
 <body>
-<h2>Fredriks Book Shop</h2>
+<h2>Camera Shop "Catch the moment"</h2>
 <jsp:useBean id="bookList" class="beans.BookListBean" scope="application">
     Error, the bean should have been created in the servlet!
 </jsp:useBean>

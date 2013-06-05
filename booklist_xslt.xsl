@@ -14,16 +14,17 @@
   <xsl:output method="html"/>
 
   <xsl:template match="booklist">
-  <table border="0">
-    <tr bgcolor="silver" cellspacing="0">
+  <table border="1" color="grey">
+    <tr bgcolor="black">
     <td>
-        <strong>Book</strong>
+        <font color="white">
+        <strong>  Product  </strong>
+        </font>
     </td>
     <td>
-        <strong>Author</strong>
-    </td>
-    <td>
+        <font color="white">
         <strong>Price</strong>
+        </font>
     </td>
     </tr>
         <xsl:apply-templates/>
@@ -31,16 +32,18 @@
   </xsl:template>
   
   <xsl:template match="book">
+    
     <form method="post" action="shop">
-    <tr bgcolor="#FFDC75" >
+    <tr bgcolor="white" >
         <td>
-            <xsl:value-of select="title"/>
+            <font color="99CC00">
+            <xsl:value-of select="prod_name"/>
+            </font>
         </td>
         <td>
-            <xsl:value-of select="authorsurname"/>, <xsl:value-of select="authorname"/> 
-        </td>
-        <td>
+            <font color="99CC00">
             <xsl:value-of select="price"/>
+            </font>
         </td>
         <td>
             <xsl:element name="input"> <!--A ordinary input in XSLT-->
