@@ -14,15 +14,17 @@
   <xsl:output method="html"/>
 
   <xsl:template match="booklist">
+  
+  
   <table border="1" color="grey">
-    <tr bgcolor="black">
+    <tr bgcolor="000000">
     <td>
-        <font color="white">
+        <font color="FFFFFF">
         <strong>  Product  </strong>
         </font>
     </td>
     <td>
-        <font color="white">
+        <font color="FFFFFF">
         <strong>Price</strong>
         </font>
     </td>
@@ -35,12 +37,12 @@
     
     <form method="post" action="shop">
     <tr bgcolor="white" >
-        <td>
+        <td align="center">
             <font color="99CC00">
             <xsl:value-of select="prod_name"/>
             </font>
         </td>
-        <td>
+        <td align="center">
             <font color="99CC00">
             <xsl:value-of select="price"/>
             </font>
@@ -56,7 +58,10 @@
         <td>
             <input type="submit" value="BUY"/>
             <xsl:element name="a"> <!-- A link in XSLT -->
-              <xsl:attribute name="href"><xsl:text disable-output-escaping="yes"><![CDATA[shop?action=detail&bookid=]]></xsl:text><xsl:value-of select="id"/></xsl:attribute>
+              <xsl:attribute name="href"><xsl:text disable-output-escaping="yes">
+                                <![CDATA[shop?action=detail&bookid=]]></xsl:text>
+              <xsl:value-of select="id"/>
+              </xsl:attribute>
               <xsl:text>Detail</xsl:text>
             </xsl:element>
         </td>

@@ -15,12 +15,14 @@
 
   <xsl:template match="shoppingcart">
   <br /> <br />
-  <table border="0" cellspacing="0">
-    <tr bgcolor="silver">
+  <table border="1" cellspacing="0" color="999999">
+    <tr bgcolor="99CC00">
     <td colspan="4">
+        <font color="000000">
         <strong>Shoppingcart</strong>
+        </font>
     </td>
-    <tr bgcolor="silver">
+    <tr bgcolor="AFCACA">
       <td>Title</td>
       <td>Quantity</td>
       <td colspan="2">Remove</td>
@@ -28,7 +30,7 @@
     </tr>
         <xsl:apply-templates/>
       <tr>
-      <td colspan="2">
+      <td colspan="4" align="right" style="padding-right: 10px;">
         <a href="shop?action=checkout">Checkout</a>
       </td>
     </tr>

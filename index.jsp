@@ -1,3 +1,11 @@
+<html>
+<head><title>BookShop::Shop</title></head>
+        <STYLE>
+            h1 {font-family: Vladimir Script;
+                font-size: 32pt }
+        </STYLE>
+<body>
+
 <div id="wrapper" style="width:100%; text-align:center">  
     <br>
     <br>
@@ -9,6 +17,9 @@
     <br>
     Continue to the <a href="shop">shop</a>
 </div>
+</body>
+
+</html>
 
 
 
