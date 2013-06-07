@@ -2,25 +2,26 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
-<%@taglib prefix="bookshop" uri="/bookshop"%>
+<%@taglib prefix="camerashop" uri="/camerashop"%>
 
 <html>
-<head><title>BookShop::Shop</title></head>
-<body>
+<head><title>CameraShop::Shop</title></head>
+<body style="margin:0;padding:0;color: #061C37;background:url(images/bg.png);
+	background-repeat:repeat-x;">
 <h1 style="font-family: Vladimir Script;font-size:24pt;">
     Camera Shop "Catch the moment"
 </h1>
-<jsp:useBean id="bookList" class="beans.BookListBean" scope="application">
+<jsp:useBean id="productList" class="beans.ProductListBean" scope="application">
     Error, the bean should have been created in the servlet!
 </jsp:useBean>
 
 
-<c:set var="booklist_xslt">
-   <c:import url="booklist_xslt.xsl"/>
+<c:set var="productlist_xslt">
+   <c:import url="productlist_xslt.xsl"/>
 </c:set> 
 
-<x:transform xslt="${booklist_xslt}">
-    <jsp:getProperty name="bookList" property="xml"/>
+<x:transform xslt="${productlist_xslt}">
+    <jsp:getProperty name="productList" property="xml"/>
 </x:transform>
 
 
@@ -29,7 +30,7 @@
    <c:import url="shoppingcart_xslt.xsl"/>
 </c:set> 
 <x:transform xslt="${shoppingcart_xslt}">
-   <bookshop:shoppingcart/>
+   <camerashop:shoppingcart/>
 </x:transform>
     
 <br>

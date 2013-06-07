@@ -2,21 +2,21 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
-<%@taglib prefix="bookshop" uri="/bookshop"%>
+<%@taglib prefix="camerashop" uri="/camerashop"%>
 
 
-<jsp:useBean id="book" class="beans.BookBean" scope="request">
+<jsp:useBean id="product" class="beans.ProductBean" scope="request">
     Error, the bean should have been created in the servlet!
 </jsp:useBean>
 
 
-<c:set var="bookdetail_xslt">
-   <c:import url="bookdetail_xslt.xsl"/>
+<c:set var="productdetail_xslt">
+   <c:import url="productdetail_xslt.xsl"/>
 </c:set> 
 
-<x:transform xslt="${bookdetail_xslt}">
+<x:transform xslt="${productdetail_xslt}">
     <detailpage>
-      <jsp:getProperty name="book" property="xml"/>
+      <jsp:getProperty name="product" property="xml"/>
     </detailpage>
 </x:transform>
 

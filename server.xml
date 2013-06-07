@@ -105,7 +105,7 @@
 
       <Realm className="org.apache.catalina.realm.JDBCRealm" debug ="99"
              driverName="com.mysql.jdbc.Driver"
-	     connectionURL="jdbc:mysql://localhost/olle?user=olle&amp;password=XX"
+	     connectionURL="jdbc:mysql://localhost/camshop?user=root&amp;password=sesame"
 	     userTable="USERS" userNameCol="USER_NAME" userCredCol="USER_PASS"
 	     userRoleTable="USER_ROLES" roleNameCol="ROLE_NAME"/>
 

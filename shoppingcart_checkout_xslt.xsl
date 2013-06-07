@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- Exempel:
-<book>
+<!-- Example:
+<product>
   <id>1</id>   
-  <title>Javaprogramming</title>
-  <authorname>Fredrik</authorname>
-  <authorsurname>Alund</authorsurname> 
+  <name>Beginners Canon</name>
   <price>23</price>
-  <pages>234</pages>
   <description>Bla bla bla</description>
-</book>
+</product>
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html"/>
 
   <xsl:template match="checkout">
     <html>
-    <head><title>BookShop::Checkout</title></head>
+    <head><title>CameraShop::Checkout</title></head>
     <body>
   <table border="0" cellspacing="0">
     <tr bgcolor="silver">
@@ -23,7 +20,7 @@
         <strong>Shoppingcart</strong>
     </td>
     <tr bgcolor="silver">
-      <td>Title</td>
+      <td>Name</td>
       <td>Quantity</td>
       <td colspan="2">Remove</td>
     </tr>
@@ -76,7 +73,7 @@
   <xsl:template match="shoppingcart/order">
     <tr>
         <td>
-            <xsl:value-of select="book/title"/>
+            <xsl:value-of select="product/name"/>
         </td>
         <td align="right">
             <xsl:value-of select="quantity"/>

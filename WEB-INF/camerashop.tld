@@ -7,8 +7,8 @@
 
     <tlib-version>1.2</tlib-version>
     <jsp-version>2.2</jsp-version>
-    <short-name>bookstore</short-name>
-    <uri>/bookshop</uri>
+    <short-name>camerashop</short-name>
+    <uri>/camerashop</uri>
     <description>The ShoppingCartTag is used to show the ShoppingCart 
     </description>
     <tag>

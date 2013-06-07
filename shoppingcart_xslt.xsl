@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Exempel:
-<book>
+<product>
   <id>1</id>   
-  <title>Javaprogramming</title>
-  <authorname>Fredrik</authorname>
-  <authorsurname>Alund</authorsurname> 
+  <name>High Pro Tele Zoom Canon</name>
   <price>23</price>
-  <pages>234</pages>
   <description>Bla bla bla</description>
-</book>
+</product>
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html"/>
@@ -16,14 +13,14 @@
   <xsl:template match="shoppingcart">
   <br /> <br />
   <table border="1" cellspacing="0" color="999999">
-    <tr bgcolor="99CC00">
+    <tr bgcolor="000000">
     <td colspan="4">
-        <font color="000000">
+        <font color="FFFFFF">
         <strong>Shoppingcart</strong>
         </font>
     </td>
     <tr bgcolor="AFCACA">
-      <td>Title</td>
+      <td>Name</td>
       <td>Quantity</td>
       <td colspan="2">Remove</td>
     </tr>
@@ -38,9 +35,11 @@
   </xsl:template>
   <xsl:template match="order">
   <form method="post" action="shop">
-    <tr>
-        <td>
-            <xsl:value-of select="book/title"/>
+       <tr bgcolor="white" >
+        <td align="left" style="padding-right: 10px;">
+            <font color="99CC00">
+            <xsl:value-of select="product/name"/>
+            </font>
         </td>
         <td align="right">
             <xsl:value-of select="quantity"/>
@@ -60,8 +59,8 @@
     
       <xsl:element name="input"> <!--A ordinary input in XSLT-->
         <xsl:attribute name="type">hidden</xsl:attribute>
-        <xsl:attribute name="value"><xsl:value-of select="book/id"/></xsl:attribute>
-        <xsl:attribute name="name">bookid</xsl:attribute>
+        <xsl:attribute name="value"><xsl:value-of select="product/id"/></xsl:attribute>
+        <xsl:attribute name="name">productid</xsl:attribute>
       </xsl:element>
       <xsl:element name="input"> <!--A ordinary input in XSLT-->
         <xsl:attribute name="type">hidden</xsl:attribute>

@@ -105,14 +105,14 @@ public class OrderBean  {
       // i. e. ORDER_ID
 
       orderItemSQL="INSERT INTO ORDER_ITEMS(ORDER_ID, ";
-      orderItemSQL += "BOOK_ID, QUANTITY) VALUES (?,?,?)";
+      orderItemSQL += "Product_ID, QUANTITY) VALUES (?,?,?)";
       stmt = con.prepareStatement("SELECT LAST_INSERT_ID()");
       rs = stmt.executeQuery();
       rs.next();
       int orderId=rs.getInt(1);
 
       Iterator iter = ((Collection)sb.getCart()).iterator();
-      BookBean bb = null;
+      ProductBean pb = null;
       Object tmpArr[];
 
       //Loop over the entire collection, i.e the entire shopping cart
@@ -121,9 +121,9 @@ public class OrderBean  {
       while(iter.hasNext()){
           
 	  tmpArr = (Object[])iter.next();
-	  bb = (BookBean)tmpArr[0];
+	  pb = (ProductBean)tmpArr[0];
           orderItemPstmt.setInt(1,orderId);
-          orderItemPstmt.setInt(2,bb.getId());
+          orderItemPstmt.setInt(2,pb.getId());
           orderItemPstmt.setInt(3,((Integer)tmpArr[1]).intValue());  
           orderItemPstmt.execute();
       }

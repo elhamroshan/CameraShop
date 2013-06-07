@@ -1,5 +1,5 @@
 /*
- * BookListBean.java
+ * ProductListBean.java
  *
  */
 package beans;
@@ -9,29 +9,29 @@ import java.sql.*;
 import java.io.*;
 /**
  *
- * @author  Fredrik Ålund, Olle Eriksson
+ * @author  Elham Roshan, Darina Buhcheva
  */
-public class BookListBean {
+public class ProductListBean {
     
-    private Collection bookList;
+    private Collection productList;
     private String url=null;
 
     // this constructor is not really used in the application
     // but is here for testing purpose
 
-    public BookListBean() throws Exception{
+    public ProductListBean() throws Exception{
       this(
-          "jdbc:mysql://localhost/olle?user=olle&password=QEYIXYTY");
+          "jdbc:mysql://localhost/camshop?user=root&password=sesame");
     }
     
     /** Creates a new instance of BookListBean */
 
-    public BookListBean(String _url) throws Exception {
+    public ProductListBean(String _url) throws Exception {
         url=_url;
         Connection conn =null;
         Statement stmt = null;
         ResultSet rs = null;
-        bookList = new ArrayList();    // a list
+        productList = new ArrayList();    // a list
         try{
             
 	    // get a database connection and load the JDBC-driver
@@ -39,31 +39,25 @@ public class BookListBean {
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection(url);
             
-	    // create SQL statements to load the books into the list
-	    // each book is a BookBean object
+	    // create SQL statements to load the products into the list
+	    // each product is a ProductBean object
 
             stmt = conn.createStatement();
-            String sql="SELECT BOOK_ID, TITLE, NAME AS AUTHOR_NAME, ";
-	    sql += "SURNAME AS AUTHOR_SURNAME, ";
-            sql += "PRICE, PAGES, DESCRIPTION FROM BOOKS,";
-	    sql += "AUTHORS WHERE BOOKS.AUTHOR_ID=AUTHORS.AUTHOR_ID";
+            String sql="SELECT ID, name, description FROM products";
+
             rs= stmt.executeQuery(sql);
             
 	    // analyze the result set
 
             while(rs.next()){
                 
-                BookBean bb = new BookBean();
+                ProductBean pb = new ProductBean();
                 
-                bb.setId(rs.getInt("BOOK_ID"));
-                bb.setTitle(rs.getString("TITLE"));
-                bb.setAuthorName(rs.getString("AUTHOR_NAME"));
-                bb.setAuthorSurname(rs.getString("AUTHOR_SURNAME"));
-                bb.setPrice(rs.getInt("PRICE"));
-                bb.setPages(rs.getInt("PAGES"));
-                bb.setDescription(rs.getString("DESCRIPTION"));
-                bookList.add(bb);
-                
+                pb.setId(rs.getInt("ID"));
+                pb.setName(rs.getString("NAME"));
+                pb.setDescription(rs.getString("DESCRIPTION"));
+                productList.add(pb);
+                // add price maybe*?
             }
         
         }
@@ -92,24 +86,24 @@ public class BookListBean {
     
     // return the booklist
     
-    java.util.Collection getProduktLista() {
-        return bookList;
+    java.util.Collection getProductList() {
+        return productList;
     }
     
     // create an XML document from the booklist
 
     public String getXml() {
         
-        BookBean bb=null;
-        Iterator iter = bookList.iterator();
+        ProductBean pb=null;
+        Iterator iter = productList.iterator();
         StringBuffer buff = new StringBuffer();
         
-        buff.append("<booklist>");
+        buff.append("<productlist>");
         while(iter.hasNext()){
-            bb=(BookBean)iter.next();
-            buff.append(bb.getXml());
+            pb=(ProductBean)iter.next();
+            buff.append(pb.getXml());
         }
-        buff.append("</booklist>");        
+        buff.append("</productlist>");        
         
         return buff.toString();
     }
@@ -117,14 +111,14 @@ public class BookListBean {
 
     // search for a book by book ID
 
-    public BookBean getById(int id) {
-	BookBean bb = null;
-	Iterator iter = bookList.iterator();
+    public ProductBean getById(int id) {
+	ProductBean pb = null;
+	Iterator iter = productList.iterator();
         
 	while(iter.hasNext()){
-	    bb=(BookBean)iter.next();
-	    if(bb.getId()== id){
-                return bb;
+	    pb=(ProductBean)iter.next();
+	    if(pb.getId()== id){
+                return pb;
 	    }
 	}
 	return null;
@@ -135,8 +129,8 @@ public class BookListBean {
 
     public static void main(String[] args){
         try{
-	    BookListBean blb = new BookListBean();
-	    System.out.println(blb.getXml());
+	    ProductListBean plb = new ProductListBean();
+	    System.out.println(plb.getXml());
         }
         catch(Exception e){
 	    System.out.println(e.getMessage());

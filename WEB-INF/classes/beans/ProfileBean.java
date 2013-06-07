@@ -7,10 +7,7 @@ package beans;
 import java.util.*;
 import java.sql.*;
 import java.io.*;
-/**
- *
- * @author  Olle Eriksson
- */
+
 public class ProfileBean {
     
     // create a profile bean

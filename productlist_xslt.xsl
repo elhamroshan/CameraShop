@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Example:
-<book>
+<product>
   <id>1</id>   
-  <title>Javaprogramming</title>
-  <authorname>Fredrik</authorname>
-  <authorsurname>Alund</authorsurname> 
+  <name>Beginners Canon</name>
   <price>23</price>
-  <pages>234</pages>
   <description>Bla bla bla</description>
-</book>
+</product>
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html"/>
 
-  <xsl:template match="booklist">
+  <xsl:template match="productlist">
   
   
-  <table border="1" color="grey">
-    <tr bgcolor="000000">
-    <td>
+  <table border="1" color="grey"  cellspacing="0"  style="padding-right: 5px; padding-left: 5px">
+    <tr bgcolor="000000" cellspacing="0" border="0">
+    <td  style="padding-right: 10px; padding-left: 5px" >
         <font color="FFFFFF">
-        <strong>  Product  </strong>
+        <strong>Product</strong>
         </font>
     </td>
-    <td>
-        <font color="FFFFFF">
+    <td  style="padding-right: 10px; padding-left: 5px">
+        <font color="FFFFFF" >
         <strong>Price</strong>
         </font>
     </td>
@@ -33,13 +30,13 @@
    </table>
   </xsl:template>
   
-  <xsl:template match="book">
+  <xsl:template match="product">
     
     <form method="post" action="shop">
     <tr bgcolor="white" >
-        <td align="center">
+        <td align="left" style="padding-right: 10px; padding-left: 5px">
             <font color="99CC00">
-            <xsl:value-of select="prod_name"/>
+            <xsl:value-of select="name"/>
             </font>
         </td>
         <td align="center">
@@ -59,7 +56,7 @@
             <input type="submit" value="BUY"/>
             <xsl:element name="a"> <!-- A link in XSLT -->
               <xsl:attribute name="href"><xsl:text disable-output-escaping="yes">
-                                <![CDATA[shop?action=detail&bookid=]]></xsl:text>
+                                <![CDATA[shop?action=detail&productid=]]></xsl:text>
               <xsl:value-of select="id"/>
               </xsl:attribute>
               <xsl:text>Detail</xsl:text>
@@ -70,7 +67,7 @@
     <xsl:element name="input"> <!--A ordinary input in XSLT-->
       <xsl:attribute name="type">hidden</xsl:attribute>
       <xsl:attribute name="value"><xsl:value-of select="id"/></xsl:attribute>
-      <xsl:attribute name="name">bookid</xsl:attribute>
+      <xsl:attribute name="name">productid</xsl:attribute>
     </xsl:element>
     
     <input type="hidden" name="action" value="add"/>

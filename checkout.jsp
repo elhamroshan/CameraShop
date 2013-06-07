@@ -2,17 +2,17 @@
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
-<%@taglib prefix="bookshop" uri="/bookshop"%>
+<%@taglib prefix="camerashop" uri="/camerashop"%>
 
 <c:if test="${sessionScope.currentUser == null}">
-  <bookshop:profile url="${jdbcURL}"/>
+  <camerashop:profile url="${jdbcURL}"/>
 </c:if>
 <c:set var="shoppingcart_xslt">
    <c:import url="shoppingcart_checkout_xslt.xsl"/>
 </c:set> 
 <x:transform xslt="${shoppingcart_xslt}">
    <checkout>
-   <bookshop:shoppingcart/>
+   <camerashop:shoppingcart/>
    <name>${profile.name}</name>
    <address>${profile.street}</address>
    <zip>${profile.zip}</zip>
