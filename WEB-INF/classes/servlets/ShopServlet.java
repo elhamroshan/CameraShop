@@ -171,7 +171,7 @@ public class ShopServlet extends HttpServlet {
 	else if(request.getParameter("action").equals("detail")){
 	    if (request.getParameter("productid") != null){
 
-		// find the book, store a reference in our request
+		// find the product, store a reference in our request
 
 		ProductBean bb = productList.getById(
 			   Integer.parseInt(request.getParameter("productid")));

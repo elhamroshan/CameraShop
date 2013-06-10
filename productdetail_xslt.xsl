@@ -24,7 +24,7 @@
       <tr>
         <td bgcolor="#FFDC75" valign="top" align="left">Name</td>
         <td>
-          <xsl:value-of select="title"/>
+          <xsl:value-of select="name"/>
         </td>
       </tr>
       <tr>

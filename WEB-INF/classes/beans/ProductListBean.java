@@ -21,7 +21,7 @@ public class ProductListBean {
 
     public ProductListBean() throws Exception{
       this(
-          "jdbc:mysql://localhost/camshop?user=root&password=sesame");
+          "jdbc:mysql://localhost/camerashop?user=root&password=");
     }
     
     /** Creates a new instance of BookListBean */
@@ -43,7 +43,11 @@ public class ProductListBean {
 	    // each product is a ProductBean object
 
             stmt = conn.createStatement();
-            String sql="SELECT ID, name, description FROM products";
+            String sql="SELECT products.ID, products.Name, products.Description, sum( components.price ) AS price " +
+                        "FROM products " +
+                        "JOIN combination " +
+                        "JOIN components ON products.ID = combination.product_ID " +
+                        "AND combination.component_ID = components.ID group by products.ID";
 
             rs= stmt.executeQuery(sql);
             
@@ -56,6 +60,7 @@ public class ProductListBean {
                 pb.setId(rs.getInt("ID"));
                 pb.setName(rs.getString("NAME"));
                 pb.setDescription(rs.getString("DESCRIPTION"));
+                pb.setPrice(rs.getInt("price"));
                 productList.add(pb);
                 // add price maybe*?
             }

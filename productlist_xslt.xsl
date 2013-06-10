@@ -54,9 +54,8 @@
         </td>
         <td>
             <input type="submit" value="BUY"/>
-            <xsl:element name="a"> <!-- A link in XSLT -->
-              <xsl:attribute name="href"><xsl:text disable-output-escaping="yes">
-                                <![CDATA[shop?action=detail&productid=]]></xsl:text>
+           <xsl:element name="a"> <!-- A link in XSLT -->
+              <xsl:attribute name="href"><xsl:text disable-output-escaping="yes"><![CDATA[shop?action=detail&productid=]]></xsl:text>
               <xsl:value-of select="id"/>
               </xsl:attribute>
               <xsl:text>Detail</xsl:text>
